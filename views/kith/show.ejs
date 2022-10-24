@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/kith.css" />
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %> <%-
+    include('../partials/aside.ejs', {persons}) %>
+    <main>
+      <form action="/kith/<%= person._id %>?_method=PUT" method="post">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" value="<%=person.firstName%>" />
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" value="<%=person.lastName%>" />
+        <fieldset>
+          <legend>Dietary Restrictions</legend>
+          <label for="glutenFree">Gluten-Free</label>
+          <input name="glutenFree" type="checkbox" <%= person.glutenFree ?
+          'checked' : '' %>/>
+          <label for="nutFree">Nut-Free</label>
+          <input name="nutFree" type="checkbox" <%= person.nutFree ? 'checked' :
+          '' %>/>
+          <label for="dairyFree">Dairy-Free</label>
+          <input name="dairyFree" type="checkbox" <%= person.dairyFree ?
+          'checked' : '' %>/>
+          <label for="vegetarian">Vegetarian</label>
+          <input name="vegetarian" type="checkbox" <%= person.vegetarian ?
+          'checked' : '' %>/>
+        </fieldset>
+        <label for="comment">Additional Comments</label>
+        <input
+          class="comment"
+          type="text"
+          name="comment"
+          value="<%=person.comment%>"
+        />
+        <button type="submit">Update Person</button>
+      </form>
+    </main>
+  </body>
+</html>

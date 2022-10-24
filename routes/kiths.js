@@ -6,4 +6,7 @@ module.exports = router;
 
 router.get("/", kithsCtrl.index);
 router.get("/new", kithsCtrl.new);
+router.get("/:id", kithsCtrl.show);
+
 router.post("/", kithsCtrl.create);
+router.put("/:id", kithsCtrl.update);
