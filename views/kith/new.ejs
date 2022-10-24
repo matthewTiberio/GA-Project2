@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kith & Kin</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/kith.css" />
   </head>
   <body>
-    <%- include('./aside', {persons}) %>
+    <%- include('../partials/header.ejs') %> <%-
+    include('../partials/aside.ejs', {persons}) %>
     <main>
       <form action="/kith" method="post">
-        <input type="text" name="firstName" placeholder="First Name" />
-        <input type="text" name="lastName" placeholder="Last Name" />
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" />
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" />
         <fieldset>
           <legend>Dietary Restrictions</legend>
           <label for="glutenFree">Gluten-Free</label>
@@ -23,7 +26,8 @@
           <label for="vegetarian">Vegetarian</label>
           <input name="vegetarian" type="checkbox" />
         </fieldset>
-        <input type="text" name="comment" placeholder="Additional Comments" />
+        <label for="comment">Additional Comments</label>
+        <input type="text" name="comment" />
         <button type="submit">Add Person</button>
       </form>
     </main>
