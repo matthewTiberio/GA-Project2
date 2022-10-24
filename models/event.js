@@ -1,14 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-module.exports = mongoose.model("Event", eventSchema);
-
 const menuSchema = new Schema({
   name: { type: String, required: true },
   madeBy: { type: Schema.Types.ObjectId },
   type: {
     type: String,
-    enum: ["Appetizer", "First Course", "Entree", "Side/Salad", "Dessert"],
+    enum: [
+      "Appetizer",
+      "Salad",
+      "First Course",
+      "Entree",
+      "Side Dish",
+      "Dessert",
+    ],
   },
   comment: String,
   glutenFree: Boolean,
@@ -26,3 +31,5 @@ const eventSchema = new Schema({
   guests: [{ type: Schema.Types.ObjectId, ref: "Kith" }],
   menu: [menuSchema],
 });
+
+module.exports = mongoose.model("Event", eventSchema);

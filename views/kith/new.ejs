@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kith & Kin</title>
+  </head>
+  <body>
+    <%- include('./aside', {persons}) %>
+    <main>
+      <form action="/kith" method="post">
+        <input type="text" name="firstName" placeholder="First Name" />
+        <input type="text" name="lastName" placeholder="Last Name" />
+        <fieldset>
+          <legend>Dietary Restrictions</legend>
+          <label for="glutenFree">Gluten-Free</label>
+          <input name="glutenFree" type="checkbox" />
+          <label for="nutFree">Nut-Free</label>
+          <input name="nutFree" type="checkbox" />
+          <label for="dairyFree">Dairy-Free</label>
+          <input name="dairyFree" type="checkbox" />
+          <label for="vegetarian">Vegetarian</label>
+          <input name="vegetarian" type="checkbox" />
+        </fieldset>
+        <input type="text" name="comment" placeholder="Additional Comments" />
+        <button type="submit">Add Person</button>
+      </form>
+    </main>
+  </body>
+</html>

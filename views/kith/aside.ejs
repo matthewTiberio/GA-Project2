@@ -1,0 +1,10 @@
+<aside>
+  <a href="kith/new">+ Add Person</a>
+  <ul>
+    <% persons.forEach(function(p) { %>
+    <li>
+      <a href="/kith/<%= p._id %>"><%= `${p.firstName} ${p.lastName}` %></a>
+    </li>
+    <% }) %>
+  </ul>
+</aside>

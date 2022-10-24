@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-module.exports = mongoose.model("Kith", kithSchema);
-
 const kithSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
@@ -12,3 +10,5 @@ const kithSchema = new Schema({
   dairyFree: Boolean,
   vegetarian: Boolean,
 });
+
+module.exports = mongoose.model("Kith", kithSchema);
