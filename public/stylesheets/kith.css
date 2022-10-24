@@ -2,6 +2,7 @@ body {
   display: grid;
   grid-template-rows: 100px 75px 1fr;
   grid-template-columns: 200px 1fr;
+  margin: 0;
 }
 
 header {
@@ -34,13 +35,14 @@ nav > a {
 }
 
 nav > a:hover {
-  color: black;
+  color: navy;
 }
 
 aside {
   grid-row: 3 / 4;
   grid-column: 1 / 2;
   font-size: 24px;
+  min-height: calc(100vh - 200px);
 }
 
 aside > div {
@@ -49,13 +51,14 @@ aside > div {
 }
 
 aside > h3 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px auto 10px 10px;
+  color: navy;
 }
 
 aside > ul {
   margin: 0;
   padding-left: 40px;
+  font-size: 20px;
 }
 
 main {
@@ -64,5 +67,50 @@ main {
   display: flex;
   justify-self: stretch;
   justify-content: center;
-  align-items: center;
+  font-size: 36px;
+  color: navy;
+}
+
+form > label {
+  display: block;
+  font-size: 36px;
+  margin: 20px 0 10px 0;
+}
+
+form > input {
+  display: block;
+  font-size: 32px;
+}
+
+form > fieldset {
+  margin: 20px 0;
+}
+
+fieldset > label {
+  font-size: 32px;
+}
+
+fieldset > input {
+  transform: scale(2);
+  margin-right: 30px;
+}
+
+.comment {
+  height: 72px;
+  width: 850px;
+  font-size: 24px;
+}
+
+form > button {
+  height: 72px;
+  width: 144px;
+  font-size: 24px;
+  display: block;
+  text-align: center;
+  margin: 25px auto;
+}
+
+form > button:hover {
+  background-color: yellow;
+  color: navy;
 }
