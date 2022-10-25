@@ -19,15 +19,68 @@
         <div class="eventDate"><%= event.date.toDateString() %><span></br></span><%= `${event.date.getHours()} : ${event.date.getMinutes()}` %></div>
         <div class="eventDescr"><%= event.descr %></div>
     </section>
-    <section class="menuItems">
+    <section class="menu">
         <a href="/events/<%= event.id %>/menu/new/">Add Menu Item</a>
-        <% event.menu.forEach(function(m) { %>
-          <div>
-            <div><%= m.name %></div>
-            <div><%= m.madeBy.firstName %></div>
-            <div><%= m.type %></div>
-          </div>
-        <% }) %>
+        <div>
+          <h4>Appetizers:</h4>
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "Appetizer") { %>
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div><%= m.madeBy.firstName %></div>
+              </div>
+          <% }}) %>
+        </div>
+        <div>
+          <h4>Salad:</h4>
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "Salad") { %>
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div><%= m.madeBy.firstName %></div>
+              </div>
+          <% }}) %>
+        </div>
+        <div>
+          <h4>First Course:</h4>
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "First Course") { %>
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div><%= m.madeBy.firstName %></div>
+              </div>
+          <% }}) %>
+        </div>
+        <div>
+          <h4>Entree:</h4>
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "Entree") { %>
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div><%= m.madeBy.firstName %></div>
+              </div>
+          <% }}) %>
+        </div>
+        <div>
+          <h4>Side Dish:</h4>
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "Side Dish") { %>
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div><%= m.madeBy.firstName %></div>
+              </div>
+          <% }}) %>
+        </div>
+        <div>
+          <h4>Dessert:</h4>
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "Dessert") { %>
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div><%= m.madeBy.firstName %></div>
+              </div>
+          <% }}) %>
+        </div>
     </section>
     <div class="other">Other Restrictions</div>
     <aside>
