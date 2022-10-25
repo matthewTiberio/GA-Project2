@@ -5,3 +5,6 @@ const eventsCtrl = require("../controllers/events");
 module.exports = router;
 
 router.get("/", eventsCtrl.index);
+router.get("/new", eventsCtrl.new);
+
+router.post("/", eventsCtrl.create);

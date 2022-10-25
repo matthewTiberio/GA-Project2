@@ -71,6 +71,10 @@ main {
   color: navy;
 }
 
+main > div {
+  margin: auto;
+}
+
 form > label {
   display: block;
   font-size: 36px;
