@@ -9,6 +9,7 @@ require("./config/database");
 var indexRouter = require("./routes/index");
 var kithRouter = require("./routes/kiths");
 var eventsRouter = require("./routes/events");
+var menusRouter = require("./routes/menus");
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/kith", kithRouter);
 app.use("/events", eventsRouter);
+app.use("/", menusRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

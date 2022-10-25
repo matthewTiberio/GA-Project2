@@ -20,9 +20,14 @@
         <div class="eventDescr"><%= event.descr %></div>
     </section>
     <section class="menuItems">
-        <form action="/events/<%= event.id %>/menu/new/" method="GET">
-            <button type="submit">Add Menu Item</button>
-        </form>
+        <a href="/events/<%= event.id %>/menu/new/">Add Menu Item</a>
+        <% event.menu.forEach(function(m) { %>
+          <div>
+            <div><%= m.name %></div>
+            <div><%= m.madeBy.firstName %></div>
+            <div><%= m.type %></div>
+          </div>
+        <% }) %>
     </section>
     <div class="other">Other Restrictions</div>
     <aside>

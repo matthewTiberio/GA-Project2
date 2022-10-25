@@ -4,34 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/kith.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/stylesheets/events/menu.css"
+    />
     <title>Kith & Kin</title>
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
     <main>
-      <form action="/events/<%= event._id %>/menu" method="post">
-        <label for="name">Dish Name</label>
+      <form action="/events/<%= event._id %>/menu" method="POST">
+        <label for="name">Dish Name:</label>
         <input type="text" name="name" />
-        <select name="kithId">
+        <label for="kithId">Brought by:</label>
+        <select name="madeBy">
           <%- persons.map(p => `
           <option value="${p._id}">${p.firstName}</option>
           ` ).join('') %>
         </select>
         <fieldset name="type">
           <legend>Dish Type</legend>
-          <label for="appetizer">Appetizer</label>
-          <input name="type" value="appetizer" type="radio" />
-          <label for="salad">Salad</label>
-          <input name="type" value="salad" type="radio" />
-          <label for="firstCourse">First Course</label>
-          <input name="type" value="firstCourse" type="radio" />
-          <label for="entree">Entree</label>
-          <input name="type" value="entree" type="radio" />
-          <label for="side">Side Dish</label>
-          <input name="type" value="side" type="radio" />
-          <label for="dessert">Dessert</label>
-          <input name="type" value="dessert" type="radio" />
+          <label for="Appetizer">Appetizer</label>
+          <input name="type" value="Appetizer" type="radio" />
+          <label for="Salad">Salad</label>
+          <input name="type" value="Salad" type="radio" />
+          <label for="First Course">First Course</label>
+          <input name="type" value="First Course" type="radio" />
+          <label for="Entree">Entree</label>
+          <input name="type" value="Entree" type="radio" />
+          <label for="Side Dish">Side Dish</label>
+          <input name="type" value="Side Dish" type="radio" />
+          <label for="Dessert">Dessert</label>
+          <input name="type" value="Dessert" type="radio" />
         </fieldset>
         <fieldset>
           <legend>Dietary Restrictions</legend>

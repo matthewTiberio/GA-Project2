@@ -7,7 +7,6 @@ module.exports = router;
 
 router.get("/", eventsCtrl.index);
 router.get("/new", eventsCtrl.new);
-router.get("/:id/menu/new", menusCtrl.new);
 router.get("/:id", eventsCtrl.show);
 
 router.post("/", eventsCtrl.create);

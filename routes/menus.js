@@ -4,4 +4,6 @@ const menusCtrl = require("../controllers/menus");
 
 module.exports = router;
 
-router.get("/new", menusCtrl.new);
+router.get("/events/:id/menu/new", menusCtrl.new);
+
+router.post("/events/:id/menu", menusCtrl.create);

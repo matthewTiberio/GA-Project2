@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const menuSchema = new Schema({
   name: { type: String, required: true },
-  madeBy: { type: Schema.Types.ObjectId },
+  madeBy: { type: Schema.Types.ObjectId, ref: "Kith" },
   type: {
     type: String,
     enum: [
