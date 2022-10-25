@@ -4,18 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/events.css" />
     <title>Kith & Kin</title>
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
     <a href="/events/new">+ Add New Event</a>
     <% events.forEach(function(e) { %>
-    <div>
-      <div><%= e.name %></div>
-      <div><%= e.date %></div>
-      <div><%= e.location %></div>
-      <div><%= e.descr %></div>
+        <a class="nostyle" href="/events/<%= e._id %>">
+        <div class="event-block">
+      <div class="event-name"><%= e.name %><span></br></span><%= e.location %></div>
+      <div class="event-date">
+        <%= e.date.toDateString() %><span></br></span><%= `${e.date.getHours()} : ${e.date.getMinutes()}` %>
+      </div>
+      <div class="event-descr"><%= e.descr %></div>
     </div>
+</a>
     <% }) %>
   </body>
 </html>
