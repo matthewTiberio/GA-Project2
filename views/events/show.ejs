@@ -20,7 +20,7 @@
         <div class="eventDescr"><%= event.descr %></div>
     </section>
     <section class="menuItems">
-        <form>
+        <form action="/events/<%= event.id %>/menu/new/" method="GET">
             <button type="submit">Add Menu Item</button>
         </form>
     </section>
