@@ -20,16 +20,21 @@
         <div class="eventDescr"><%= event.descr %></div>
     </section>
     <section class="menu">
-        <a href="/events/<%= event.id %>/menu/new/">Add Menu Item</a>
+        <a href="/events/<%= event.id %>/menu/new/">+ Menu Item</a>
         <div>
           <h4>Appetizers:</h4>
+          <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Appetizer") { %>
+              <a class="nostyle" href="events/<%= event.id %>/menu/<%= m._id %>">
               <div class="menuItem">
                 <div><%= m.name %></div>
-                <div><%= m.madeBy.firstName %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
               </div>
-          <% }}) %>
+            </a>
+          <% } %>
+        <% }) %>
+      </div>
         </div>
         <div>
           <h4>Salad:</h4>
