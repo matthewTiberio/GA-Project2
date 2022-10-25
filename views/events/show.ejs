@@ -14,10 +14,17 @@
   <body>
     <%- include('../partials/header.ejs') %>
     <main>
-        <div><%= event.name %><span></br></span><%= event.location %></div>
-        <div><%= event.date.toDateString() %><span></br></span><%= `${event.date.getHours()} : ${event.date.getMinutes()}` %></div>
-        <div><%= event.descr %></div>
-    </main>
+    <section class="eventDetails">
+        <div class="eventName"><%= event.name %><span></br></span><%= event.location %></div>
+        <div class="eventDate"><%= event.date.toDateString() %><span></br></span><%= `${event.date.getHours()} : ${event.date.getMinutes()}` %></div>
+        <div class="eventDescr"><%= event.descr %></div>
+    </section>
+    <section class="menuItems">
+        <form>
+            <button type="submit">Add Menu Item</button>
+        </form>
+    </section>
+    <div class="other">Other Restrictions</div>
     <aside>
         <h3>Guest List</h3>
         <ul>
@@ -38,6 +45,7 @@
           </select>
           <button type="submit">Add Guest</button>
         </form>
-      </aside>      
+      </aside>
+    </main>      
   </body>
 </html>
