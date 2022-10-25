@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/stylesheets/events/show.css"
+    />
+    <title>Kith & Kin</title>
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+        <div><%= event.name %><span></br></span><%= event.location %></div>
+        <div><%= event.date.toDateString() %><span></br></span><%= `${event.date.getHours()} : ${event.date.getMinutes()}` %></div>
+        <div><%= event.descr %></div>
+    </main>
+    <aside>
+        <h3>Guest List</h3>
+        <ul>
+            <%- event.guestList.map(p => 
+            `<li>${p.firstName}</li>`
+            ).join('') %>
+        </ul>
+      
+        <form action="/events/<%= event.id %>/guest" method="post">
+          <select name="kithId">
+            <%- persons.map(p =>
+                `<option value="${p._id}"">${p.firstName}</option>`
+            ).join('') %>
+          </select>
+          <button type="submit">Add Guest</button>
+        </form>
+      </aside>      
+  </body>
+</html>

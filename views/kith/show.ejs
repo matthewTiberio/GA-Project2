@@ -8,7 +8,7 @@
   </head>
   <body>
     <%- include('../partials/header.ejs') %> <%-
-    include('../partials/aside.ejs', {persons}) %>
+    include('../partials/kith_nav.ejs', {persons}) %>
     <main>
       <form action="/kith/<%= person._id %>?_method=PUT" method="post">
         <label for="firstName">First Name</label>

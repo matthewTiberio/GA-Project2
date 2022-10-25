@@ -28,7 +28,7 @@ const eventSchema = new Schema({
   location: String,
   descr: String,
   host: { type: Schema.Types.ObjectId, ref: "Kith" },
-  guests: [{ type: Schema.Types.ObjectId, ref: "Kith" }],
+  guestList: [{ type: Schema.Types.ObjectId, ref: "Kith" }],
   menu: [menuSchema],
 });
 

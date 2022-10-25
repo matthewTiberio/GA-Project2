@@ -1,0 +1,18 @@
+<aside>
+  <h3>Guest List</h3>
+  <ul>
+    <% event.guestList.forEach(function(g) { %>
+    <li>
+      <a href="/events/<%= g._id =>?_method=DELETE">X</a> <%= p.firstName %>
+    </li>
+    <% }) %>
+  </ul>
+
+  <form action="/events/<%= event.id =>/addGuest" method="post">
+    <select name="guest">
+      <% persons.forEach(function(p) { %>
+      <option><%= p.firstName %></option>
+      <% }) %>
+    </select>
+  </form>
+</aside>
