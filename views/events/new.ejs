@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="/stylesheets/events.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/stylesheets/events/show.css"
+    />
     <title>Kith & Kin</title>
   </head>
   <body>
@@ -14,11 +18,11 @@
         <label for="name">Event Name</label>
         <input type="text" name="name" />
         <label for="date">Event Date</label>
-        <input type="datetime-local" name="date" />
+        <input type="datetime-local" class="date" name="date" />
         <label for="location">Location</label>
         <input type="text" name="location" />
         <label for="descr">Description</label>
-        <input type="text" name="descr" />
+        <input type="text" class="comment" name="descr" />
         <button type="submit">Add Event</button>
       </form>
     </main>
