@@ -7,6 +7,7 @@ module.exports = {
   create,
   show,
   addGuest,
+  removeGuest,
 };
 
 function index(req, res) {
@@ -43,6 +44,17 @@ function addGuest(req, res) {
     event.guestList.push(req.body.kithId);
     event.save(function (err) {
       res.redirect(`/events/${event._id}`);
+    });
+  });
+}
+
+function removeGuest(req, res) {
+  console.log(req.params, req.body);
+  Event.findById(req.params.id, function (err, event) {
+    const idx = event.guestList.indexOf(req.body.kithId);
+    event.guestList.splice(idx, 1);
+    event.save(function (err) {
+      res.redirect(`/events/${event.id}`);
     });
   });
 }

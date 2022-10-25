@@ -22,14 +22,18 @@
         <h3>Guest List</h3>
         <ul>
             <%- event.guestList.map(p => 
-            `<li>${p.firstName}</li>`
-            ).join('') %>
+                `<form action="/events/${event.id}/guest/?_method=DELETE" method="post">
+                    <input type="hidden" name="kithId" value="${p._id}">
+                    <li><button type="submit">X</button> ${p.firstName}</li>
+                </form>`
+                ).join('') 
+            %>
         </ul>
       
         <form action="/events/<%= event.id %>/guest" method="post">
           <select name="kithId">
             <%- persons.map(p =>
-                `<option value="${p._id}"">${p.firstName}</option>`
+                `<option value="${p._id}">${p.firstName}</option>`
             ).join('') %>
           </select>
           <button type="submit">Add Guest</button>

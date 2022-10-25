@@ -10,3 +10,5 @@ router.get("/:id", eventsCtrl.show);
 
 router.post("/", eventsCtrl.create);
 router.post("/:id/guest", eventsCtrl.addGuest);
+
+router.delete("/:id/guest", eventsCtrl.removeGuest);
