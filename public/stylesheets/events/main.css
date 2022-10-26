@@ -89,7 +89,12 @@ aside {
 }
 
 aside > h3 {
-  margin: 15px;
+  margin: 15px auto 2px 15px;
+}
+
+aside > p {
+  font-size: 24px;
+  margin: 0 auto 15px 25px;
 }
 
 aside > ul {

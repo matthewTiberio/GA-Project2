@@ -108,7 +108,8 @@
     </section>
     <div class="other">Other Restrictions</div>
     <aside>
-        <h3>Guest List</h3>
+        <h3>Guest List: <span><%= guestCount %></span></h3>
+        <p>GF: <%= restrictions.gFCount %>, NF: <%= restrictions.nFCount %>, DF: <%= restrictions.dFCount %>, VG: <%= restrictions.vgCount %></p>
         <ul>
             <%- event.guestList.map(p => 
                 `<form action="/events/${event.id}/guest/?_method=DELETE" method="post">
