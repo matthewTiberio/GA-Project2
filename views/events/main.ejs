@@ -22,7 +22,7 @@
     <section class="menu">
         <a href="/events/<%= event.id %>/menu/new/">+ Menu Item</a>
         <div>
-          <h4>Appetizers:</h4>
+          <h4>Appetizers: <span>GF: <%= menuRestrict[0].gFCount %>, NF: <%= menuRestrict[0].nFCount %>, DF: <%= menuRestrict[0].dFCount %>, VG: <%= menuRestrict[0].vgCount %></span></h4>
           <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Appetizer") { %>
@@ -36,7 +36,7 @@
           <% }) %>
         </div>
         <div>
-          <h4>Salad:</h4>
+          <h4>Salad: <span>GF: <%= menuRestrict[1].gFCount %>, NF: <%= menuRestrict[1].nFCount %>, DF: <%= menuRestrict[1].dFCount %>, VG: <%= menuRestrict[1].vgCount %></span></h4>
           <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Salad") { %>
@@ -50,7 +50,7 @@
           <% }) %>
         </div>
         <div>
-          <h4>First Course:</h4>
+          <h4>First Course: <span>GF: <%= menuRestrict[2].gFCount %>, NF: <%= menuRestrict[2].nFCount %>, DF: <%= menuRestrict[2].dFCount %>, VG: <%= menuRestrict[2].vgCount %></span></h4>
           <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "First Course") { %>
@@ -64,7 +64,7 @@
           <% }) %>
         </div>
         <div>
-          <h4>Entree:</h4>
+          <h4>Entree: <span>GF: <%= menuRestrict[3].gFCount %>, NF: <%= menuRestrict[3].nFCount %>, DF: <%= menuRestrict[3].dFCount %>, VG: <%= menuRestrict[3].vgCount %></span></h4>
           <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Entree") { %>
@@ -78,7 +78,7 @@
           <% }) %>
         </div>
         <div>
-          <h4>Side Dish:</h4>
+          <h4>Side Dish: <span>GF: <%= menuRestrict[4].gFCount %>, NF: <%= menuRestrict[4].nFCount %>, DF: <%= menuRestrict[4].dFCount %>, VG: <%= menuRestrict[4].vgCount %></span></h4>
           <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Side Dish") { %>
@@ -92,7 +92,7 @@
           <% }) %>
         </div> 
         <div>
-          <h4>Dessert:</h4>
+          <h4>Dessert: <span>GF: <%= menuRestrict[5].gFCount %>, NF: <%= menuRestrict[5].nFCount %>, DF: <%= menuRestrict[5].dFCount %>, VG: <%= menuRestrict[5].vgCount %></span></h4>
           <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Dessert") { %>

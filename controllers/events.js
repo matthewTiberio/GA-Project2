@@ -43,11 +43,15 @@ function show(req, res) {
         guestRestrictCount(event, guestRestrict);
         menuRestrictCount(event, menuRestrict, "Appetizer", 0);
         menuRestrictCount(event, menuRestrict, "Salad", 1);
-        console.log(menuRestrict);
+        menuRestrictCount(event, menuRestrict, "First Course", 2);
+        menuRestrictCount(event, menuRestrict, "Entree", 3);
+        menuRestrictCount(event, menuRestrict, "Side Dish", 4);
+        menuRestrictCount(event, menuRestrict, "Dessert", 5);
         res.render("events/main", {
           event,
           persons,
           guestRestrict,
+          menuRestrict,
         });
       });
     });
