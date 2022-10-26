@@ -106,7 +106,6 @@
           <% }) %>
         </div>                       
     </section>
-    <div class="other">Other Restrictions</div>
     <aside>
         <h3>Guest List: <span><%= guestRestrict.guestCount %></span></h3>
         <p>GF: <%= guestRestrict.gFCount %>, NF: <%= guestRestrict.nFCount %>, DF: <%= guestRestrict.dFCount %>, VG: <%= guestRestrict.vgCount %></p>
@@ -129,6 +128,15 @@
           <button type="submit">Add Guest</button>
         </form>
       </aside>
+      <div class="other">
+      <h4>Other Restrictions</h4>
+      <div>
+        <% event.guestList.forEach(function(g) { %>
+          <% if (g.comment !== "") { %>
+          <div><%= g.firstName %>: <%= g.comment %></div>
+        <% }}) %>
+      </div>
+    </div>
     </main>
     <form action="/events/<%= event.id %>/edit" method="GET">
       <button type="submit">Edit Event</button>
