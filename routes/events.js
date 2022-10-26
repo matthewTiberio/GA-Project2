@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
 const eventsCtrl = require("../controllers/events");
-const menusCtrl = require("../controllers/menus");
 
 module.exports = router;
 
@@ -16,3 +15,4 @@ router.post("/:id/guest", eventsCtrl.addGuest);
 router.put("/:id", eventsCtrl.update);
 
 router.delete("/:id/guest", eventsCtrl.removeGuest);
+router.delete("/:id", eventsCtrl.delete);

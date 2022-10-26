@@ -131,7 +131,9 @@
     </main>
     <form action="/events/<%= event.id %>/edit" method="GET">
       <button type="submit">Edit Event</button>
-      <button type="submit" formaction="/events/<%= event.id %>?_method=DELETE">Delete Event</button>
+    </form>
+    <form action="/events/<%= event._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete Event</button>
     </form>
   </body>
 </html>

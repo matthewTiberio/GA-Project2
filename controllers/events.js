@@ -10,6 +10,7 @@ module.exports = {
   removeGuest,
   edit,
   update,
+  delete: deleteEvent,
 };
 
 function index(req, res) {
@@ -72,7 +73,6 @@ function edit(req, res) {
 
 function update(req, res) {
   Event.findById(req.params.id, function (err, event) {
-    console.log(req.body);
     event.name = req.body.name;
     event.location = req.body.location;
     event.date = req.body.date;
@@ -80,5 +80,12 @@ function update(req, res) {
     event.save(function (err) {
       res.redirect(`/events/${event.id}`);
     });
+  });
+}
+
+function deleteEvent(req, res) {
+  Event.deleteOne({ _id: req.params.id }, function (err) {
+    if (err) res.send(err.message);
+    res.redirect("/events");
   });
 }
