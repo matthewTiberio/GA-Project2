@@ -38,9 +38,9 @@ function create(req, res) {
 function show(req, res) {
   Event.findById(req.params.id)
     .populate("guestList")
+    .populate({ path: "menu.madeBy", select: "firstName" })
     .exec(function (err, event) {
       const item = event.menu.id(req.query.menuId);
-      console.log(event);
       Kith.find({}, function (err, persons) {
         res.render("menus/show", { event, item, persons });
       });
