@@ -87,16 +87,21 @@ fieldset > input {
   font-size: 24px;
 }
 
-form > button {
+form button {
+  display: inline;
   height: 72px;
   width: 144px;
   font-size: 24px;
-  display: block;
   text-align: center;
-  margin: 25px auto;
+  margin: 25px;
 }
 
-form > button:hover {
+form button:hover {
   background-color: yellow;
   color: navy;
+}
+
+.submitButtons {
+  display: flex;
+  justify-content: center;
 }
