@@ -31,61 +31,80 @@
                 <div><%= m.name %></div>
                 <div>Made by: <%= m.madeBy.firstName %></div>
               </div>
-            </a>
-          <% } %>
-        <% }) %>
-      </div>
+              </a>
+            <% } %>
+          <% }) %>
         </div>
         <div>
           <h4>Salad:</h4>
+          <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Salad") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
               <div class="menuItem">
                 <div><%= m.name %></div>
-                <div><%= m.madeBy.firstName %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
               </div>
-          <% }}) %>
+              </a>
+            <% } %>
+          <% }) %>
         </div>
         <div>
           <h4>First Course:</h4>
+          <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "First Course") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
               <div class="menuItem">
                 <div><%= m.name %></div>
-                <div><%= m.madeBy.firstName %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
               </div>
-          <% }}) %>
+              </a>
+            <% } %>
+          <% }) %>
         </div>
         <div>
           <h4>Entree:</h4>
+          <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Entree") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
               <div class="menuItem">
                 <div><%= m.name %></div>
-                <div><%= m.madeBy.firstName %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
               </div>
-          <% }}) %>
+              </a>
+            <% } %>
+          <% }) %>
         </div>
         <div>
           <h4>Side Dish:</h4>
+          <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Side Dish") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
               <div class="menuItem">
                 <div><%= m.name %></div>
-                <div><%= m.madeBy.firstName %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
               </div>
-          <% }}) %>
-        </div>
+              </a>
+            <% } %>
+          <% }) %>
+        </div> 
         <div>
           <h4>Dessert:</h4>
+          <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Dessert") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
               <div class="menuItem">
                 <div><%= m.name %></div>
-                <div><%= m.madeBy.firstName %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
               </div>
-          <% }}) %>
-        </div>
+              </a>
+            <% } %>
+          <% }) %>
+        </div>                       
     </section>
     <div class="other">Other Restrictions</div>
     <aside>
