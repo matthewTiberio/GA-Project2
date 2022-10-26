@@ -39,6 +39,8 @@ main {
   grid-template-rows: 200px 1fr 200px;
   min-height: 1000px;
   color: navy;
+  gap: 10px;
+  padding: 10px;
 }
 
 .eventDetails {

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/stylesheets/events/main.css"
+    />
+    <title>Kith & Kin</title>
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+    <section class="eventDetails">
+        <div class="eventName"><%= event.name %><span></br></span><%= event.location %></div>
+        <div class="eventDate"><%= event.date.toDateString() %><span></br></span><%= `${event.date.getHours()} : ${event.date.getMinutes()}` %></div>
+        <div class="eventDescr"><%= event.descr %></div>
+    </section>
+    <section class="menu">
+        <a href="/events/<%= event.id %>/menu/new/">+ Menu Item</a>
+        <div>
+          <h4>Appetizers:</h4>
+          <div class="menuType">
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "Appetizer") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
+              </div>
+              </a>
+            <% } %>
+          <% }) %>
+        </div>
+        <div>
+          <h4>Salad:</h4>
+          <div class="menuType">
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "Salad") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
+              </div>
+              </a>
+            <% } %>
+          <% }) %>
+        </div>
+        <div>
+          <h4>First Course:</h4>
+          <div class="menuType">
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "First Course") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
+              </div>
+              </a>
+            <% } %>
+          <% }) %>
+        </div>
+        <div>
+          <h4>Entree:</h4>
+          <div class="menuType">
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "Entree") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
+              </div>
+              </a>
+            <% } %>
+          <% }) %>
+        </div>
+        <div>
+          <h4>Side Dish:</h4>
+          <div class="menuType">
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "Side Dish") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
+              </div>
+              </a>
+            <% } %>
+          <% }) %>
+        </div> 
+        <div>
+          <h4>Dessert:</h4>
+          <div class="menuType">
+          <% event.menu.forEach(function(m) { %>
+            <% if (m.type === "Dessert") { %>
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
+              <div class="menuItem">
+                <div><%= m.name %></div>
+                <div>Made by: <%= m.madeBy.firstName %></div>
+              </div>
+              </a>
+            <% } %>
+          <% }) %>
+        </div>                       
+    </section>
+    <div class="other">Other Restrictions</div>
+    <aside>
+        <h3>Guest List</h3>
+        <ul>
+            <%- event.guestList.map(p => 
+                `<form action="/events/${event.id}/guest/?_method=DELETE" method="post">
+                    <input type="hidden" name="kithId" value="${p._id}">
+                    <li><button type="submit">X</button> ${p.firstName}</li>
+                </form>`
+                ).join('') 
+            %>
+        </ul>
+      
+        <form action="/events/<%= event.id %>/guest" method="post">
+          <select name="kithId">
+            <%- persons.map(p =>
+                `<option value="${p._id}">${p.firstName}</option>`
+            ).join('') %>
+          </select>
+          <button type="submit">Add Guest</button>
+        </form>
+      </aside>
+    </main>
+    <form action="/events/<%= event.id %>/edit" method="GET">
+      <button type="submit">Edit Event</button>
+      <button type="submit" formaction="/events/<%= event.id %>?_method=DELETE">Delete Event</button>
+    </form>
+  </body>
+</html>

@@ -8,6 +8,8 @@ module.exports = {
   show,
   addGuest,
   removeGuest,
+  edit,
+  update,
 };
 
 function index(req, res) {
@@ -35,7 +37,7 @@ function show(req, res) {
     .populate({ path: "menu.madeBy", select: "firstName" })
     .exec(function (err, event) {
       Kith.find({ _id: { $nin: event.guestList } }, function (err, persons) {
-        res.render("events/show", { event, persons });
+        res.render("events/main", { event, persons });
       });
     });
 }
@@ -50,10 +52,28 @@ function addGuest(req, res) {
 }
 
 function removeGuest(req, res) {
-  console.log(req.params, req.body);
   Event.findById(req.params.id, function (err, event) {
     const idx = event.guestList.indexOf(req.body.kithId);
     event.guestList.splice(idx, 1);
+    event.save(function (err) {
+      res.redirect(`/events/${event.id}`);
+    });
+  });
+}
+
+function edit(req, res) {
+  Event.findById(req.params.id, function (err, event) {
+    res.render("events/show", { event });
+  });
+}
+
+function update(req, res) {
+  Event.findById(req.params.id, function (err, event) {
+    console.log(req.body);
+    event.name = req.body.name;
+    event.location = req.body.location;
+    event.date = req.body.date;
+    event.descr = req.body.descr;
     event.save(function (err) {
       res.redirect(`/events/${event.id}`);
     });
