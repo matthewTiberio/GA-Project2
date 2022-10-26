@@ -38,23 +38,50 @@ function show(req, res) {
     .populate({ path: "menu.madeBy", select: "firstName" })
     .exec(function (err, event) {
       Kith.find({ _id: { $nin: event.guestList } }, function (err, persons) {
-        const guestCount = event.guestList.length;
-        const restrictions = {};
-        restrictions.gFCount = event.guestList.filter(function (guest) {
-          return guest.glutenFree;
-        }).length;
-        restrictions.nFCount = event.guestList.filter(function (guest) {
-          return guest.nutFree;
-        }).length;
-        restrictions.dFCount = event.guestList.filter(function (guest) {
-          return guest.dairyFree;
-        }).length;
-        restrictions.vgCount = event.guestList.filter(function (guest) {
-          return guest.vegetarian;
-        }).length;
-        res.render("events/main", { event, persons, guestCount, restrictions });
+        const guestRestrict = {};
+        const menuRestrict = [{}, {}, {}, {}, {}, {}];
+        guestRestrictCount(event, guestRestrict);
+        menuRestrictCount(event, menuRestrict, "Appetizer", 0);
+        menuRestrictCount(event, menuRestrict, "Salad", 1);
+        console.log(menuRestrict);
+        res.render("events/main", {
+          event,
+          persons,
+          guestRestrict,
+        });
       });
     });
+}
+
+function guestRestrictCount(event, guestRestrict) {
+  guestRestrict.guestCount = event.guestList.length;
+  guestRestrict.gFCount = event.guestList.filter(function (guest) {
+    return guest.glutenFree;
+  }).length;
+  guestRestrict.nFCount = event.guestList.filter(function (guest) {
+    return guest.nutFree;
+  }).length;
+  guestRestrict.dFCount = event.guestList.filter(function (guest) {
+    return guest.dairyFree;
+  }).length;
+  guestRestrict.vgCount = event.guestList.filter(function (guest) {
+    return guest.vegetarian;
+  }).length;
+}
+
+function menuRestrictCount(event, menuRestrict, itemType, idx) {
+  menuRestrict[idx].gFCount = event.menu.filter(function (item) {
+    return item.type === itemType && item.glutenFree;
+  }).length;
+  menuRestrict[idx].nFCount = event.menu.filter(function (item) {
+    return item.type === itemType && item.nutFree;
+  }).length;
+  menuRestrict[idx].dFCount = event.menu.filter(function (item) {
+    return item.type === itemType && item.dairyFree;
+  }).length;
+  menuRestrict[idx].vgCount = event.menu.filter(function (item) {
+    return item.type === itemType && item.vegetarian;
+  }).length;
 }
 
 function addGuest(req, res) {

@@ -108,13 +108,13 @@
     </section>
     <div class="other">Other Restrictions</div>
     <aside>
-        <h3>Guest List: <span><%= guestCount %></span></h3>
-        <p>GF: <%= restrictions.gFCount %>, NF: <%= restrictions.nFCount %>, DF: <%= restrictions.dFCount %>, VG: <%= restrictions.vgCount %></p>
+        <h3>Guest List: <span><%= guestRestrict.guestCount %></span></h3>
+        <p>GF: <%= guestRestrict.gFCount %>, NF: <%= guestRestrict.nFCount %>, DF: <%= guestRestrict.dFCount %>, VG: <%= guestRestrict.vgCount %></p>
         <ul>
             <%- event.guestList.map(p => 
                 `<form action="/events/${event.id}/guest/?_method=DELETE" method="post">
                     <input type="hidden" name="kithId" value="${p._id}">
-                    <li><button type="submit">X</button> ${p.firstName}</li>
+                    <li><button type="submit">X</button> ${p.firstName} <span>${p.glutenFree ? "GF" : ""} ${p.nutFree ? "NF" : ""} ${p.dairyFree ? "DF" : ""} ${p.vegetarian ? "VG" : ""}</span></li>
                 </form>`
                 ).join('') 
             %>

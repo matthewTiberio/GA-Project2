@@ -108,6 +108,10 @@ aside li {
   padding: 5px;
 }
 
+aside span {
+  font-size: 20px;
+}
+
 aside select {
   margin: 20px;
   width: 200px;
