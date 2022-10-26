@@ -130,12 +130,10 @@
       </aside>
       <div class="other">
       <h4>Other Restrictions</h4>
-      <div>
         <% event.guestList.forEach(function(g) { %>
           <% if (g.comment !== "") { %>
           <div><%= g.firstName %>: <%= g.comment %></div>
         <% }}) %>
-      </div>
     </div>
     </main>
     <form action="/events/<%= event.id %>/edit" method="GET">

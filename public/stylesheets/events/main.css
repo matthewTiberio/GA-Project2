@@ -178,6 +178,16 @@ aside > form > button {
   margin: 5px;
 }
 
+.other h4 {
+  font-size: 32px;
+  margin: 10px;
+}
+
+.other > div {
+  font-size: 20px;
+  margin: 0 0 0 25px;
+}
+
 a.nostyle {
   text-decoration: inherit;
   color: inherit;
