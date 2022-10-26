@@ -63,7 +63,10 @@ function removeGuest(req, res) {
 
 function edit(req, res) {
   Event.findById(req.params.id, function (err, event) {
-    res.render("events/show", { event });
+    let date = event.date;
+    date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+    let datestr = date.toISOString().substring(0, 16);
+    res.render("events/show", { event, datestr });
   });
 }
 
