@@ -71,6 +71,12 @@
         />
         <button type="submit">Update Item</button>
       </form>
+      <form
+        action="/events/<%= event._id %>/menu?menuId=<%= item._id %>&_method=DELETE"
+        method="POST"
+      >
+        <button type="submit">Delete Item</button>
+      </form>
     </main>
   </body>
 </html>

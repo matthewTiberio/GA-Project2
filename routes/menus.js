@@ -9,3 +9,4 @@ router.get("/events/:id/menu", menusCtrl.show);
 
 router.post("/events/:id/menu", menusCtrl.create);
 router.put("/events/:id/menu", menusCtrl.update);
+router.delete("/events/:id/menu", menusCtrl.delete);

@@ -6,6 +6,7 @@ module.exports = {
   create,
   show,
   update,
+  delete: deleteItem,
 };
 
 function newItem(req, res) {
@@ -54,6 +55,15 @@ function update(req, res) {
     item.nutFree = !!req.body.nutFree;
     item.dairyFree = !!req.body.dairyFree;
     item.vegetarian = !!req.body.vegetarian;
+    event.save(function (err) {
+      res.redirect(`/events/${event._id}`);
+    });
+  });
+}
+
+function deleteItem(req, res) {
+  Event.findById(req.params.id, function (err, event) {
+    event.menu.id(req.query.menuId).remove();
     event.save(function (err) {
       res.redirect(`/events/${event._id}`);
     });
