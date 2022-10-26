@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/stylesheets/events/menu.css"
+    />
+    <title>Kith & Kin</title>
+  </head>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+      <form action="/events/<%= event._id %>/menu" method="POST">
+        <label for="name">Dish Name:</label>
+        <input type="text" name="name" value="<%= item.name %>" />
+        <label for="kithId">Brought by:</label>
+        <select name="madeBy">
+          <%- persons.map(p => `
+          <option value="${p._id}">${p.firstName}</option>
+          ` ).join('') %>
+        </select>
+        <fieldset name="type">
+          <legend>Dish Type</legend>
+          <label for="Appetizer">Appetizer</label>
+          <input name="type" value="Appetizer" type="radio" />
+          <label for="Salad">Salad</label>
+          <input name="type" value="Salad" type="radio" />
+          <label for="First Course">First Course</label>
+          <input name="type" value="First Course" type="radio" />
+          <label for="Entree">Entree</label>
+          <input name="type" value="Entree" type="radio" />
+          <label for="Side Dish">Side Dish</label>
+          <input name="type" value="Side Dish" type="radio" />
+          <label for="Dessert">Dessert</label>
+          <input name="type" value="Dessert" type="radio" />
+        </fieldset>
+        <fieldset>
+          <legend>Dietary Restrictions</legend>
+          <label for="glutenFree">Gluten-Free</label>
+          <input name="glutenFree" type="checkbox" <%= item.glutenFree ?
+          'checked' : '' %>/>
+          <label for="nutFree">Nut-Free</label>
+          <input name="nutFree" type="checkbox" <%= item.nutFree ? 'checked' :
+          '' %>/>
+          <label for="dairyFree">Dairy-Free</label>
+          <input name="dairyFree" type="checkbox" <%= item.dairyFree ? 'checked'
+          : '' %>/>
+          <label for="vegetarian">Vegetarian</label>
+          <input name="vegetarian" type="checkbox" <%= item.vegetarianFree ?
+          'checked' : '' %>/>
+        </fieldset>
+        <label for="comment">Additional Comments</label>
+        <input
+          class="comment"
+          type="text"
+          name="comment"
+          value="<%= item.comment %>"
+        />
+        <button type="submit">Add Item</button>
+      </form>
+    </main>
+  </body>
+</html>

@@ -26,7 +26,7 @@
           <div class="menuType">
           <% event.menu.forEach(function(m) { %>
             <% if (m.type === "Appetizer") { %>
-              <a class="nostyle" href="events/<%= event.id %>/menu/<%= m._id %>">
+              <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
               <div class="menuItem">
                 <div><%= m.name %></div>
                 <div>Made by: <%= m.madeBy.firstName %></div>

@@ -4,6 +4,7 @@ const Kith = require("../models/kith");
 module.exports = {
   new: newItem,
   create,
+  show,
 };
 
 function newItem(req, res) {
@@ -29,6 +30,15 @@ function create(req, res) {
     event.menu.push(newMenu);
     event.save(function (err) {
       res.redirect(`/events/${event._id}`);
+    });
+  });
+}
+
+function show(req, res) {
+  Event.findById(req.params.id, function (err, event) {
+    const item = event.menu.id(req.query.menuId);
+    Kith.find({}, function (err, persons) {
+      res.render("menus/show", { event, item, persons });
     });
   });
 }
