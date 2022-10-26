@@ -8,3 +8,4 @@ router.get("/events/:id/menu/new", menusCtrl.new);
 router.get("/events/:id/menu", menusCtrl.show);
 
 router.post("/events/:id/menu", menusCtrl.create);
+router.put("/events/:id/menu", menusCtrl.update);
