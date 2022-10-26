@@ -108,6 +108,20 @@ aside li {
   padding: 5px;
 }
 
+aside li > button {
+  margin: 5px;
+}
+
+aside li > a,
+aside li > a:visited {
+  margin: 5px;
+  color: inherit;
+}
+
+aside li > a:hover {
+  color: #1c83e2;
+}
+
 aside span {
   font-size: 20px;
 }
@@ -198,4 +212,23 @@ a.nostyle {
 .menuItem:hover {
   background-color: grey;
   color: white;
+}
+
+.submitButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.submitButtons button {
+  display: inline;
+  height: 72px;
+  width: 144px;
+  font-size: 24px;
+  text-align: center;
+  margin: 25px;
+}
+
+.submitButtons button:hover {
+  background-color: yellow;
+  color: navy;
 }

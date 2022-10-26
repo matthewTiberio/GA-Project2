@@ -113,7 +113,7 @@
             <%- event.guestList.map(p => 
                 `<form action="/events/${event.id}/guest/?_method=DELETE" method="post">
                     <input type="hidden" name="kithId" value="${p._id}">
-                    <li><button type="submit">X</button> ${p.firstName} <span>${p.glutenFree ? "GF" : ""} ${p.nutFree ? "NF" : ""} ${p.dairyFree ? "DF" : ""} ${p.vegetarian ? "VG" : ""}</span></li>
+                    <li><button type="submit">X</button><a href="/kith/${p._id}">${p.firstName}</a><span>${p.glutenFree ? "GF" : ""} ${p.nutFree ? "NF" : ""} ${p.dairyFree ? "DF" : ""} ${p.vegetarian ? "VG" : ""}</span></li>
                 </form>`
                 ).join('') 
             %>
@@ -136,11 +136,13 @@
         <% }}) %>
     </div>
     </main>
+    <div class="submitButtons">
     <form action="/events/<%= event.id %>/edit" method="GET">
       <button type="submit">Edit Event</button>
     </form>
     <form action="/events/<%= event._id %>?_method=DELETE" method="POST">
       <button type="submit">Delete Event</button>
     </form>
+  </div>
   </body>
 </html>
