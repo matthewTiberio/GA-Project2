@@ -22,7 +22,7 @@
         <input type="text" name="name" value="<%= item.name %>" />
         <label for="kithId">Brought by:</label>
         <select name="madeBy">
-          <%- persons.map(p => `
+          <%- event.guestList.map(p => `
           <option value="${p._id}">${p.firstName}</option>
           ` ).join('') %>
         </select>

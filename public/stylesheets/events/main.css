@@ -186,6 +186,7 @@ aside > form > button {
 .other > div {
   font-size: 20px;
   margin: 0 0 0 25px;
+  display: inline;
 }
 
 a.nostyle {

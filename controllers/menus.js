@@ -36,12 +36,15 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  Event.findById(req.params.id, function (err, event) {
-    const item = event.menu.id(req.query.menuId);
-    Kith.find({}, function (err, persons) {
-      res.render("menus/show", { event, item, persons });
+  Event.findById(req.params.id)
+    .populate("guestList")
+    .exec(function (err, event) {
+      const item = event.menu.id(req.query.menuId);
+      console.log(event);
+      Kith.find({}, function (err, persons) {
+        res.render("menus/show", { event, item, persons });
+      });
     });
-  });
 }
 
 function update(req, res) {
