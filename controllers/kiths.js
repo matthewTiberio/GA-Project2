@@ -6,6 +6,7 @@ module.exports = {
   create,
   show,
   update,
+  delete: deletePerson,
 };
 
 function index(req, res) {
@@ -64,6 +65,13 @@ function update(req, res) {
         res.redirect("/kith");
       });
     });
+  });
+}
+
+function deletePerson(req, res) {
+  Kith.deleteOne({ _id: req.params.id }, function (err) {
+    if (err) res.send(err.message);
+    res.redirect("/kith");
   });
 }
 

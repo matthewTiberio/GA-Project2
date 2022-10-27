@@ -10,3 +10,5 @@ router.get("/:id", kithsCtrl.show);
 
 router.post("/", kithsCtrl.create);
 router.put("/:id", kithsCtrl.update);
+
+router.delete("/:id", kithsCtrl.delete);

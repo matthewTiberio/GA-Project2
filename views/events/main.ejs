@@ -29,7 +29,7 @@
               <a class="nostyle" href="/events/<%= event.id %>/menu?menuId=<%= m._id %>">
               <div class="menuItem">
                 <div><%= m.name %></div>
-                <div>Made by: <%= m.madeBy.firstName %></div>
+                <div>Made by: <%= (m.madeBy) ? m.madeBy.firstName : "" %></div>
                 <div>
                  <div class="restrict <%= m.glutenFree ? "show" : "hide" %>">GF</div>
                  <div class="restrict <%= m.nutFree ? "show" : "hide" %>"">NF</div>

@@ -38,7 +38,15 @@
             name="comment"
             value="<%=person.comment%>"
           />
-          <button type="submit">Update Person</button>
+          <div class="submitButtons">
+            <button type="submit">Update Person</button>
+            <button
+              type="submit"
+              formaction="/kith/<%= person._id %>?_method=DELETE"
+            >
+              Delete Person
+            </button>
+          </div>
         </form>
       </section>
     </main>

@@ -167,3 +167,23 @@ a.nostyle {
   color: inherit;
   cursor: auto;
 }
+
+.submitButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.submitButtons button {
+  display: inline;
+  height: 72px;
+  width: 144px;
+  font-size: 24px;
+  text-align: center;
+  margin: 25px 25px 50px 25px;
+  color: navy;
+}
+
+.submitButtons button:hover {
+  background-color: #1c83e2;
+  color: white;
+}
