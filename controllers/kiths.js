@@ -26,7 +26,7 @@ function newPerson(req, res) {
 }
 
 function create(req, res) {
-  const Kith = new Kith(req.body);
+  const kith = new Kith(req.body);
   kith.glutenFree = !!req.body.glutenFree;
   kith.nutFree = !!req.body.nutFree;
   kith.dairyFree = !!req.body.dairyFree;
