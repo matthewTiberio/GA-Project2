@@ -188,6 +188,16 @@ aside > form > button {
   padding: 0;
 }
 
+.menuItem .restrict {
+  display: inline;
+  width: 25px;
+  font-size: 20px;
+}
+
+.menuItem .restrict.hide {
+  color: grey;
+}
+
 .other {
   grid-row: 3 / 4;
   grid-column: 1 / 4;
