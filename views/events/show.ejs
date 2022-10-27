@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/events/new.css" />
-    <title>Kith & Kin</title>
+    <title>Kith & Kin - Event</title>
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
@@ -23,12 +23,7 @@
         <label for="location">Location</label>
         <input type="text" name="location" value="<%= event.location %>" />
         <label for="descr">Description</label>
-        <input
-          type="text"
-          class="comment"
-          name="descr"
-          value="<%= event.descr %>"
-        />
+        <textarea class="comment" name="descr"><%= event.descr %></textarea>
         <button type="submit">Update Event</button>
       </form>
     </main>

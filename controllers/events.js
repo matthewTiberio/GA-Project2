@@ -51,35 +51,6 @@ function show(req, res) {
     });
 }
 
-function sortList(a, b) {
-  let fa = a.firstName.toLowerCase(),
-    fb = b.firstName.toLowerCase();
-
-  if (fa < fb) {
-    return -1;
-  } else if (fa > fb) {
-    return 1;
-  } else {
-    return 0;
-  }
-}
-
-function guestRestrictCount(event, guestRestrict) {
-  guestRestrict.guestCount = event.guestList.length;
-  guestRestrict.gFCount = event.guestList.filter(function (guest) {
-    return guest.glutenFree;
-  }).length;
-  guestRestrict.nFCount = event.guestList.filter(function (guest) {
-    return guest.nutFree;
-  }).length;
-  guestRestrict.dFCount = event.guestList.filter(function (guest) {
-    return guest.dairyFree;
-  }).length;
-  guestRestrict.vgCount = event.guestList.filter(function (guest) {
-    return guest.vegetarian;
-  }).length;
-}
-
 function addGuest(req, res) {
   Event.findById(req.params.id, function (err, event) {
     event.guestList.push(req.body.kithId);
@@ -125,4 +96,33 @@ function deleteEvent(req, res) {
     if (err) res.send(err.message);
     res.redirect("/events");
   });
+}
+
+function sortList(a, b) {
+  let fa = a.firstName.toLowerCase(),
+    fb = b.firstName.toLowerCase();
+
+  if (fa < fb) {
+    return -1;
+  } else if (fa > fb) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+function guestRestrictCount(event, guestRestrict) {
+  guestRestrict.guestCount = event.guestList.length;
+  guestRestrict.gFCount = event.guestList.filter(function (guest) {
+    return guest.glutenFree;
+  }).length;
+  guestRestrict.nFCount = event.guestList.filter(function (guest) {
+    return guest.nutFree;
+  }).length;
+  guestRestrict.dFCount = event.guestList.filter(function (guest) {
+    return guest.dairyFree;
+  }).length;
+  guestRestrict.vgCount = event.guestList.filter(function (guest) {
+    return guest.vegetarian;
+  }).length;
 }

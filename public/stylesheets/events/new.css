@@ -28,10 +28,12 @@ nav > a {
   color: white;
   font-size: 36px;
   margin: auto 0;
+  text-decoration: none;
 }
 
 nav > a:hover {
   color: navy;
+  text-decoration: underline;
 }
 
 main {
@@ -73,6 +75,6 @@ form > button {
 }
 
 form > button:hover {
-  background-color: yellow;
-  color: navy;
+  background-color: #1c83e2;
+  color: white;
 }

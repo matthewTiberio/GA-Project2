@@ -32,10 +32,13 @@ nav {
 nav > a {
   color: white;
   font-size: 36px;
+  margin: auto 0;
+  text-decoration: none;
 }
 
 nav > a:hover {
   color: navy;
+  text-decoration: underline;
 }
 
 main {
@@ -65,7 +68,7 @@ form > input {
 
 form > select {
   font-size: 32px;
-  width: 200px;
+  width: 250px;
 }
 
 form > fieldset {
@@ -87,21 +90,27 @@ fieldset > input {
   font-size: 24px;
 }
 
-form button {
+.submitButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.submitButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.submitButtons button {
   display: inline;
   height: 72px;
   width: 144px;
   font-size: 24px;
   text-align: center;
-  margin: 25px;
-}
-
-form button:hover {
-  background-color: yellow;
+  margin: 25px 25px 50px 25px;
   color: navy;
 }
 
-.submitButtons {
-  display: flex;
-  justify-content: center;
+.submitButtons button:hover {
+  background-color: #1c83e2;
+  color: white;
 }

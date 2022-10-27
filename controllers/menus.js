@@ -10,11 +10,14 @@ module.exports = {
 };
 
 function newItem(req, res) {
-  Event.findById(req.params.id, function (err, event) {
-    Kith.find({}, function (err, persons) {
-      res.render("menus/new", { event, persons });
+  Event.findById(req.params.id)
+    .populate("guestList")
+    .exec(function (err, event) {
+      Kith.find({}, function (err, persons) {
+        event.guestList.sort(sortList);
+        res.render("menus/new", { event, persons });
+      });
     });
-  });
 }
 
 function create(req, res) {
@@ -42,6 +45,7 @@ function show(req, res) {
     .exec(function (err, event) {
       const item = event.menu.id(req.query.menuId);
       Kith.find({}, function (err, persons) {
+        event.guestList.sort(sortList);
         res.render("menus/show", { event, item, persons });
       });
     });
@@ -71,4 +75,17 @@ function deleteItem(req, res) {
       res.redirect(`/events/${event._id}`);
     });
   });
+}
+
+function sortList(a, b) {
+  let fa = a.firstName.toLowerCase(),
+    fb = b.firstName.toLowerCase();
+
+  if (fa < fb) {
+    return -1;
+  } else if (fa > fb) {
+    return 1;
+  } else {
+    return 0;
+  }
 }

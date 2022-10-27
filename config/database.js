@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/kithkin", {
+mongoose.connect(procss.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

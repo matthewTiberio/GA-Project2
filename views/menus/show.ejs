@@ -9,7 +9,7 @@
       type="text/css"
       href="/stylesheets/events/menu.css"
     />
-    <title>Kith & Kin</title>
+    <title>Kith & Kin - Menu</title>
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
@@ -20,7 +20,7 @@
       >
         <label for="name">Dish Name:</label>
         <input type="text" name="name" value="<%= item.name %>" />
-        <label for="kithId">Brought by:</label>
+        <label for="kithId">Made by:</label>
         <select name="madeBy">
           <% event.guestList.forEach(function(g) { if (g.firstName ===
           item.madeBy.firstName) { %>

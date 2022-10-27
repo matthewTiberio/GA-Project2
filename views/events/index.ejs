@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/events/index.css" />
-    <title>Kith & Kin</title>
+    <title>Kith & Kin - Event</title>
   </head>
   <body>
     <%- include('../partials/header.ejs') %>
-    <a href="/events/new">+ Add New Event</a>
+    <a class="addNew" href="/events/new">+ Add New Event</a>
     <% events.forEach(function(e) { %>
         <a class="nostyle" href="/events/<%= e._id %>">
         <div class="event-block">
