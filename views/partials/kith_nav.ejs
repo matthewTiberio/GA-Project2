@@ -4,10 +4,10 @@
   </div>
   <h3>Kith & Kin</h3>
   <ul>
-    <% persons.forEach(function(p) { %>
-    <li>
-      <a href="/kith/<%= p._id %>"><%= `${p.firstName} ${p.lastName}` %></a>
-    </li>
-    <% }) %>
+    <%- persons.map(p => `<a class="nostyle" href="/kith/${p._id}">
+      <div class="person">
+        <li>${p.firstName} ${p.lastName}</li>
+      </div></a
+    >` ).join('') %>
   </ul>
 </aside>

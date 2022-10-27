@@ -7,29 +7,31 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/kith.css" />
   </head>
   <body>
-    <%- include('../partials/header.ejs') %> <%-
-    include('../partials/kith_nav.ejs', {persons}) %>
+    <%- include('../partials/header.ejs') %>
     <main>
-      <form action="/kith" method="post">
-        <label for="firstName">First Name</label>
-        <input type="text" name="firstName" />
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" />
-        <fieldset>
-          <legend>Dietary Restrictions</legend>
-          <label for="glutenFree">Gluten-Free</label>
-          <input name="glutenFree" type="checkbox" />
-          <label for="nutFree">Nut-Free</label>
-          <input name="nutFree" type="checkbox" />
-          <label for="dairyFree">Dairy-Free</label>
-          <input name="dairyFree" type="checkbox" />
-          <label for="vegetarian">Vegetarian</label>
-          <input name="vegetarian" type="checkbox" />
-        </fieldset>
-        <label for="comment">Additional Comments</label>
-        <input class="comment" type="text" name="comment" />
-        <button type="submit">Add Person</button>
-      </form>
+      <%- include('../partials/kith_nav.ejs', {persons}) %>
+      <section>
+        <form action="/kith" method="post">
+          <label for="firstName">First Name</label>
+          <input type="text" name="firstName" />
+          <label for="lastName">Last Name</label>
+          <input type="text" name="lastName" />
+          <fieldset>
+            <legend>Dietary Restrictions</legend>
+            <label for="glutenFree">Gluten-Free</label>
+            <input name="glutenFree" type="checkbox" />
+            <label for="nutFree">Nut-Free</label>
+            <input name="nutFree" type="checkbox" />
+            <label for="dairyFree">Dairy-Free</label>
+            <input name="dairyFree" type="checkbox" />
+            <label for="vegetarian">Vegetarian</label>
+            <input name="vegetarian" type="checkbox" />
+          </fieldset>
+          <label for="comment">Additional Comments</label>
+          <input class="comment" type="text" name="comment" />
+          <button type="submit">Add Person</button>
+        </form>
+      </section>
     </main>
   </body>
 </html>

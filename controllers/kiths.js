@@ -11,6 +11,7 @@ module.exports = {
 function index(req, res) {
   Kith.find({}, function (err, persons) {
     if (err) return res.send(err.message);
+    persons.sort(sortList);
     res.render("kith/index", { persons });
   });
 }
@@ -18,6 +19,7 @@ function index(req, res) {
 function newPerson(req, res) {
   Kith.find({}, function (err, persons) {
     if (err) return res.send(err.message);
+    persons.sort(sortList);
     res.render("kith/new", { persons });
   });
 }
@@ -37,6 +39,7 @@ function create(req, res) {
 function show(req, res) {
   Kith.find({}, function (err, persons) {
     if (err) return res.send(err.message);
+    persons.sort(sortList);
     Kith.findById(req.params.id, function (err, person) {
       if (err) res.send(err.message);
       res.render("kith/show", { persons, person });
@@ -62,4 +65,17 @@ function update(req, res) {
       });
     });
   });
+}
+
+function sortList(a, b) {
+  let fa = a.firstName.toLowerCase(),
+    fb = b.firstName.toLowerCase();
+
+  if (fa < fb) {
+    return -1;
+  } else if (fa > fb) {
+    return 1;
+  } else {
+    return 0;
+  }
 }

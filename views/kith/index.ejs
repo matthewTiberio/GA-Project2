@@ -7,10 +7,12 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/kith.css" />
   </head>
   <body>
-    <%- include('../partials/header.ejs') %> <%-
-    include('../partials/kith_nav.ejs', {persons}) %>
+    <%- include('../partials/header.ejs') %>
     <main>
-      <div>Please Select Person</div>
+      <%- include('../partials/kith_nav.ejs', {persons}) %>
+      <section>
+        <div>Please Select Person</div>
+      </section>
     </main>
   </body>
 </html>
