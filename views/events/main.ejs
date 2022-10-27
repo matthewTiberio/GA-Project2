@@ -20,7 +20,7 @@
         <div class="eventDescr"><%= event.descr %></div>
     </section>
     <section class="menu">
-        <a href="/events/<%= event.id %>/menu/new/">+ Menu Item</a>
+        <a href="/events/<%= event.id %>/menu/new/">+ Add Menu Item</a>
         <div>
           <h4>Appetizers: <span>GF: <%= menuRestrict[0].gFCount %>, NF: <%= menuRestrict[0].nFCount %>, DF: <%= menuRestrict[0].dFCount %>, VG: <%= menuRestrict[0].vgCount %></span></h4>
           <div class="menuType">
@@ -30,6 +30,7 @@
               <div class="menuItem">
                 <div><%= m.name %></div>
                 <div>Made by: <%= m.madeBy.firstName %></div>
+                <div>GF NF DF VG</div>
               </div>
               </a>
             <% } %>
@@ -108,24 +109,26 @@
     </section>
     <aside>
         <h3>Guest List: <span><%= guestRestrict.guestCount %></span></h3>
-        <p>GF: <%= guestRestrict.gFCount %>, NF: <%= guestRestrict.nFCount %>, DF: <%= guestRestrict.dFCount %>, VG: <%= guestRestrict.vgCount %></p>
+        <p> GF: <%= guestRestrict.gFCount %>, NF: <%= guestRestrict.nFCount %>, DF: <%= guestRestrict.dFCount %>, VG: <%= guestRestrict.vgCount %></p>
         <ul>
             <%- event.guestList.map(p => 
                 `<form action="/events/${event.id}/guest/?_method=DELETE" method="post">
                     <input type="hidden" name="kithId" value="${p._id}">
-                    <li><button type="submit">X</button><a href="/kith/${p._id}">${p.firstName}</a><span>${p.glutenFree ? "GF" : ""} ${p.nutFree ? "NF" : ""} ${p.dairyFree ? "DF" : ""} ${p.vegetarian ? "VG" : ""}</span></li>
+                    <li><a href="/kith/${p._id}">${p.firstName}</a><span>${p.glutenFree ? "GF" : ""} ${p.nutFree ? "NF" : ""} ${p.dairyFree ? "DF" : ""} ${p.vegetarian ? "VG" : ""}</span><button type="submit">X</button></li>
                 </form>`
                 ).join('') 
             %>
         </ul>
       
+        <div>Additional Guests</div>
         <form action="/events/<%= event.id %>/guest" method="post">
           <select name="kithId">
+            <option disabled selected>Select New Guest</option>
             <%- persons.map(p =>
                 `<option value="${p._id}">${p.firstName}</option>`
             ).join('') %>
           </select>
-          <button type="submit">Add Guest</button>
+          <button type="submit">Add</button>
         </form>
       </aside>
       <div class="other">
@@ -143,6 +146,5 @@
     <form action="/events/<%= event._id %>?_method=DELETE" method="POST">
       <button type="submit">Delete Event</button>
     </form>
-  </div>
   </body>
 </html>

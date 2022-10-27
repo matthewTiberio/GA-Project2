@@ -1,4 +1,3 @@
-const kith = require("../models/kith");
 const Kith = require("../models/kith");
 
 module.exports = {
@@ -24,7 +23,7 @@ function newPerson(req, res) {
 }
 
 function create(req, res) {
-  const kith = new Kith(req.body);
+  const Kith = new Kith(req.body);
   kith.glutenFree = !!req.body.glutenFree;
   kith.nutFree = !!req.body.nutFree;
   kith.dairyFree = !!req.body.dairyFree;
