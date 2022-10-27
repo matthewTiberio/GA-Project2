@@ -143,19 +143,20 @@
         </div>                       
     </section>
     <aside>
-        <h3>Guest List: <span><%= guestRestrict.guestCount %></span></h3>
-        <p> GF: <%= guestRestrict.gFCount %>, NF: <%= guestRestrict.nFCount %>, DF: <%= guestRestrict.dFCount %>, VG: <%= guestRestrict.vgCount %></p>
+        <h3>Guest List:</h3>
+        <h4>Attendees: <%= guestRestrict.guestCount %></h4>
+        <h5> GF: <%= guestRestrict.gFCount %>, NF: <%= guestRestrict.nFCount %>, DF: <%= guestRestrict.dFCount %>, VG: <%= guestRestrict.vgCount %></h5>
         <ul>
             <%- event.guestList.map(p => 
                 `<form action="/events/${event.id}/guest/?_method=DELETE" method="post">
                     <input type="hidden" name="kithId" value="${p._id}">
-                    <li><a href="/kith/${p._id}">${p.firstName}</a><span>${p.glutenFree ? "GF" : ""} ${p.nutFree ? "NF" : ""} ${p.dairyFree ? "DF" : ""} ${p.vegetarian ? "VG" : ""}</span><button type="submit">X</button></li>
+                    <li><a href="/kith/${p._id}">${p.firstName}</a><span>${p.glutenFree ? "GF" : ""} ${p.nutFree ? "NF" : ""} ${p.dairyFree ? "DF" : ""} ${p.vegetarian ? "VG" : ""}</span></li><button class="list" type="submit">X</button>
                 </form>`
                 ).join('') 
             %>
         </ul>
       
-        <div>Additional Guests</div>
+        <h3 class="additionalGuests">Additional Guests</h3>
         <form action="/events/<%= event.id %>/guest" method="post">
           <select name="kithId">
             <option disabled selected>Select New Guest</option>

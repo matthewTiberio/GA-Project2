@@ -38,23 +38,30 @@ function show(req, res) {
     .populate({ path: "menu.madeBy", select: "firstName" })
     .exec(function (err, event) {
       Kith.find({ _id: { $nin: event.guestList } }, function (err, persons) {
+        event.guestList.sort(sortList);
+        persons.sort(sortList);
         const guestRestrict = {};
-        const menuRestrict = [{}, {}, {}, {}, {}, {}];
         guestRestrictCount(event, guestRestrict);
-        menuRestrictCount(event, menuRestrict, "Appetizer", 0);
-        menuRestrictCount(event, menuRestrict, "Salad", 1);
-        menuRestrictCount(event, menuRestrict, "First Course", 2);
-        menuRestrictCount(event, menuRestrict, "Entree", 3);
-        menuRestrictCount(event, menuRestrict, "Side Dish", 4);
-        menuRestrictCount(event, menuRestrict, "Dessert", 5);
         res.render("events/main", {
           event,
           persons,
           guestRestrict,
-          menuRestrict,
         });
       });
     });
+}
+
+function sortList(a, b) {
+  let fa = a.firstName.toLowerCase(),
+    fb = b.firstName.toLowerCase();
+
+  if (fa < fb) {
+    return -1;
+  } else if (fa > fb) {
+    return 1;
+  } else {
+    return 0;
+  }
 }
 
 function guestRestrictCount(event, guestRestrict) {
@@ -70,21 +77,6 @@ function guestRestrictCount(event, guestRestrict) {
   }).length;
   guestRestrict.vgCount = event.guestList.filter(function (guest) {
     return guest.vegetarian;
-  }).length;
-}
-
-function menuRestrictCount(event, menuRestrict, itemType, idx) {
-  menuRestrict[idx].gFCount = event.menu.filter(function (item) {
-    return item.type === itemType && item.glutenFree;
-  }).length;
-  menuRestrict[idx].nFCount = event.menu.filter(function (item) {
-    return item.type === itemType && item.nutFree;
-  }).length;
-  menuRestrict[idx].dFCount = event.menu.filter(function (item) {
-    return item.type === itemType && item.dairyFree;
-  }).length;
-  menuRestrict[idx].vgCount = event.menu.filter(function (item) {
-    return item.type === itemType && item.vegetarian;
   }).length;
 }
 

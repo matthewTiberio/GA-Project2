@@ -13,13 +13,6 @@ Kith pages
 
 Event Index
 
-Event Main
-
-- Attendees (count)
-- Add Dietary Restrictions header to Guest List
-- Look into Select List placeholder
-- Removing Menu Type dietary considerations
-
 Event New / Update
 
 Header

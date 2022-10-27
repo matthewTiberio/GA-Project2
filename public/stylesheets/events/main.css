@@ -27,10 +27,12 @@ nav > a {
   color: white;
   font-size: 36px;
   margin: auto 0;
+  text-decoration: none;
 }
 
 nav > a:hover {
   color: navy;
+  text-decoration: underline;
 }
 
 main {
@@ -92,6 +94,16 @@ aside > h3 {
   margin: 15px auto 2px 15px;
 }
 
+aside > h4 {
+  margin: 5px auto 2px 25px;
+  font-size: 30px;
+}
+
+aside > h5 {
+  margin: 5px auto 20px 25px;
+  font-size: 24px;
+}
+
 aside > p {
   font-size: 24px;
   margin: 0 auto 15px 25px;
@@ -104,16 +116,32 @@ aside > ul {
   padding: 0;
 }
 
-aside li {
+aside > ul > form {
+  display: flex;
+  margin: 10px 5px;
   padding: 5px;
   border-color: #1c83e2;
   border-style: solid;
   border-width: 1px;
-  margin: 5px;
+  justify-content: stretch;
 }
 
-aside li > button {
-  margin: 5px;
+aside li {
+  display: inline;
+  align-items: flex-start;
+}
+
+aside button.list {
+  display: inline;
+  align-items: flex-end;
+  padding: 5px;
+  margin: auto 5px auto auto;
+  color: navy;
+}
+
+aside button.list:hover {
+  background-color: #1c83e2;
+  color: white;
 }
 
 aside li > a,
@@ -125,10 +153,16 @@ aside li > a:visited {
 
 aside li > a:hover {
   color: #1c83e2;
+  text-decoration: underline;
 }
 
 aside span {
   font-size: 20px;
+}
+
+aside > h3.additionalGuests {
+  margin: 50px auto 0 15px;
+  font-weight: normal;
 }
 
 aside select {
@@ -139,6 +173,12 @@ aside select {
 
 aside > form > button {
   font-size: 24px;
+  color: navy;
+}
+
+aside > form > button:hover {
+  background-color: #1c83e2;
+  color: white;
 }
 
 .menu {
@@ -154,6 +194,12 @@ aside > form > button {
   display: block;
   margin: 10px auto 10px 25px;
   font-size: 24px;
+  text-decoration: none;
+}
+
+.menu > a:hover {
+  color: #1c83e2;
+  text-decoration: underline;
 }
 
 .menu h4 {
@@ -195,7 +241,7 @@ aside > form > button {
 }
 
 .menuItem .restrict.hide {
-  color: grey;
+  color: lightgrey;
 }
 
 .other {
@@ -213,7 +259,7 @@ aside > form > button {
 }
 
 .other > div {
-  font-size: 20px;
+  font-size: 24px;
   margin: 0 0 0 25px;
   display: inline;
 }
@@ -225,7 +271,7 @@ a.nostyle {
 }
 
 .menuItem:hover {
-  background-color: grey;
+  background-color: #1c83e2;
   color: white;
 }
 
@@ -240,10 +286,11 @@ a.nostyle {
   width: 144px;
   font-size: 24px;
   text-align: center;
-  margin: 25px;
+  margin: 25px 25px 50px 25px;
+  color: navy;
 }
 
 .submitButtons button:hover {
-  background-color: yellow;
-  color: navy;
+  background-color: #1c83e2;
+  color: white;
 }
