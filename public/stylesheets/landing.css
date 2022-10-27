@@ -1,21 +1,30 @@
 body {
+  margin: 0;
+}
+
+header {
   background-color: #1c83e2;
+  margin: 0;
+  padding: 20px;
 }
 
 h1 {
   text-align: center;
   color: white;
   font-size: 72px;
+  margin: 20px;
 }
 
-div {
+main {
   width: 100vw;
+  height: calc(100vh - 300px);
   display: flex;
   justify-content: space-evenly;
 }
 
 form {
   justify-content: space-evenly;
+  align-self: center;
 }
 
 button {
@@ -28,5 +37,6 @@ button {
 }
 
 button:hover {
-  background-color: yellow;
+  background-color: #1c83e2;
+  color: white;
 }
