@@ -22,12 +22,13 @@
         <input type="text" name="name" value="<%= item.name %>" />
         <label for="kithId">Made by:</label>
         <select name="madeBy">
-          <% event.guestList.forEach(function(g) { if (g.firstName ===
+          <% if (item.madeBy.firstName !== "") { %> <%
+          event.guestList.forEach(function(g) { if (g.firstName ===
           item.madeBy.firstName) { %>
           <option value="<%= g._id %>" selected><%= g.firstName %></option>
           <% } else { %>
           <option value="<%= g._id %>"><%= g.firstName %></option>
-          <% }}) %>
+          <% }}}) %>
         </select>
         <fieldset name="type">
           <legend>Dish Type</legend>
