@@ -22,7 +22,7 @@
         <input type="text" name="name" value="<%= item.name %>" />
         <label for="kithId">Made by:</label>
         <select name="madeBy">
-          <% if (item.madeBy.firstName !== "") { %> <%
+          <% if (item.madeBy.firstName !== "") {
           event.guestList.forEach(function(g) { if (g.firstName ===
           item.madeBy.firstName) { %>
           <option value="<%= g._id %>" selected><%= g.firstName %></option>
