@@ -46,6 +46,7 @@ function show(req, res) {
       const item = event.menu.id(req.query.menuId);
       Kith.find({}, function (err, persons) {
         event.guestList.sort(sortList);
+        console.log(item.madeBy);
         res.render("menus/show", { event, item, persons });
       });
     });
